@@ -44,14 +44,14 @@ def communicatey(sock1,sock2):
 def server(conns):
     conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     conn.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    conn.connect(('148.100.78.73',6500))  #148.100.78.73
+    conn.connect(('127.0.0.1',6500))  
     conn.settimeout(60)
     _thread.start_new_thread(communicatet,(conns,conn))
     communicatey(conn,conns)
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-s.bind(("192.168.0.21", 4450))
+s.bind(("127.0.0.1", 4450))
 s.listen(10)
 print('proxy start...')
 while True:
